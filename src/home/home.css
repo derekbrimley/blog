@@ -1,0 +1,6 @@
+.profile-image {
+    height: 400px;
+    width: 300px;
+    background-image: url(../images/me_with_burrito.jpg);
+    background-size: cover;
+}
