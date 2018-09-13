@@ -9,16 +9,15 @@ interface IBlogItemProps {
 }
 
 const BlogItem: React.SFC<IBlogItemProps> = props => (
-  <div className="box content">
+  <div>
     <h1>{props.title}</h1>
-    <Markdown source={props.content.split(" ").splice(0,150).join(" ").concat('...')} />
     <Link
       to={{
         pathname: `/blog${props.path}`,
-        state: { props }
+        state: props,
       }}
     >
-      Read More
+      <Markdown source={props.content.split(" ").splice(0,150).join(" ").concat('...')} />
     </Link>
   </div>
 )

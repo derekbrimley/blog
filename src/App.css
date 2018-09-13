@@ -4,15 +4,23 @@
   background-image: url(./images/background.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 16px;
+  min-height: 500px;
 }
 
 .content {
+  width: 100%;
+  background: #fff;
+  box-shadow: #bbb 1px 2px 8px 4px;
   padding: 16px;
+  font-size: 18px;
 }
+
 
 .title {
   font-size: 32px;
   font-weight: 800;
+  padding-bottom: 16px;
 }
 
 
