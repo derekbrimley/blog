@@ -16,6 +16,10 @@
   font-size: 18px;
 }
 
+.inner-content {
+  max-height: 450px;
+  overflow: auto; 
+}
 
 .title {
   font-size: 32px;

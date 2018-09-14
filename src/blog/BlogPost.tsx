@@ -20,20 +20,23 @@ const BlogPost: React.SFC<IBlogPostProps> = props => {
   const { icon, title, content } = props.location.state
   return (
     <div className='content'>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/blog"><IconButton><ArrowBack /></IconButton></Link>
-        <div>
-          <h1>{title}</h1>
+      <div className='inner-content'>
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Link to="/blog"><IconButton><ArrowBack /></IconButton></Link>
+          <div>
+            <h1>{title}</h1>
+          </div>
         </div>
-      </div>
-      <div>
-        <Markdown source={content} />
-      </div>
-      {icon && (
         <div>
-          <img src={icon} alt="Image" />
+          <Markdown source={content} />
         </div>
-      )}
+        {icon && (
+          <div>
+            <img src={icon} alt="Image" />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

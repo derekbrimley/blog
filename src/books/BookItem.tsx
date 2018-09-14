@@ -2,23 +2,23 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import * as Markdown from 'react-markdown'
 
-interface IBlogItemProps {
+interface IBookItemProps {
   title: string
   content: string
   path: string
 }
 
-const BlogItem: React.SFC<IBlogItemProps> = props => (
+const BookItem: React.SFC<IBookItemProps> = props => (
   <div>
     <Link
       to={{
-        pathname: `/blog${props.path}`,
+        pathname: `/books${props.path}`,
         state: props,
       }}
     >
-      <h3>{props.title}</h3>
+      <h1>{props.title}</h1>
       <Markdown source={props.content.split(" ").splice(0,10).join(" ").concat('...')} />
     </Link>
   </div>
 )
-export default BlogItem
+export default BookItem

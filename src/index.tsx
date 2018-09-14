@@ -12,6 +12,8 @@ import Pictures from './pictures/Pictures'
 import Projects from './projects/Projects'
 import Blog from './blog/Blog'
 import BlogPost from './blog/BlogPost'
+import Books from './books/Books'
+import BookReview from './books/BookReview'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 const Main = () => (
@@ -22,17 +24,19 @@ const Main = () => (
         <div style={{ width: 200 }}>
           <div className='sections'>
             <div><Link to="/">Home</Link></div>
+            <div><Link to='/blog'>Blog</Link></div>
+            <div><Link to='/books'>Books</Link></div>
             <div><Link to='/pictures'>Pictures</Link></div>
             <div><Link to='/projects'>Projects</Link></div>
-            <div><Link to='/blog'>Blog</Link></div>
-            {/* <div><Link to='/movies'>Movies</Link></div> */}
           </div>
         </div>
         <Route exact={true} path="/" component={Home}/>
-        <Route path="/Pictures" component={Pictures}/>
-        <Route path="/projects" component={Projects}/>
         <Route exact path="/blog" component={Blog} />
         <Route path='/blog/:blogPost' component={BlogPost} />
+        <Route exact path='/books' component={Books} />
+        <Route path='/books/:bookReview' component={BookReview} />
+        <Route path="/pictures" component={Pictures}/>
+        <Route path="/projects" component={Projects}/>
         {/* <Route exact path='/movies' component /> */}
       </div>
     </div>

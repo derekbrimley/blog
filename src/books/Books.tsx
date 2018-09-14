@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 import * as contentful from 'contentful'
-import BlogItem from './BlogItem';
+import BookItem from './BookItem';
 
 interface IField {
   title: string
@@ -15,7 +15,7 @@ interface IItem {
 interface IState {
   posts: IField[]
 }
-export default class Blog extends React.Component<{}, IState> {
+class App extends React.Component {
   client = contentful.createClient({
     space: 'ouum3dzu7fjd',
     accessToken: 'fcf692aa2400dc90b038ca1d1ddcf3c8a85e7c1e213c178abaf31ecc3c264da2'
@@ -25,24 +25,20 @@ export default class Blog extends React.Component<{}, IState> {
   }
   componentDidMount() {
     this.client.getEntries<IItem>().then((entries) => {
-      const posts = entries.items
-        .filter(entry => entry.sys.contentType.sys.id === 'blog')
-        .sort((a, b) =>
-          new Date(b.sys.createdAt) < new Date(a.sys.createdAt) ? -1 :
-          new Date(b.sys.createdAt) > new Date(a.sys.createdAt) ? 1 : 0
-        )
+      const posts = entries.items.filter(entry => entry.sys.contentType.sys.id === 'bookReviews')
         .map((entry) => (entry as any).fields)
       this.setState({ posts })
     })
   }
-
-  public render() {
+  render() {
     return (
       <div className='content'>
         {this.state.posts.map((post, i) => (
-          <BlogItem key={i} {...post} />
+          <BookItem key={i} {...post} />
         ))}
       </div>
-    )
+    );
   }
 }
+
+export default App;
