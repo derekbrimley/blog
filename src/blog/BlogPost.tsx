@@ -29,7 +29,7 @@ const BlogPost: React.SFC<IBlogPostProps> = props => {
           </div>
         </div>
         <div>
-          <Markdown source={content} />
+          <Markdown source={content} linkTarget='_blank' />
         </div>
         {icon && (
           <div>
